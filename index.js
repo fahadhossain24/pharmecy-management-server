@@ -22,9 +22,6 @@ const client = new MongoClient(uri, {
   }
 });
 
-app.get('/test', (req, res) => {
-  res.send('test');
-})
 
 async function run() {
   try {
@@ -32,6 +29,10 @@ async function run() {
 
     const medicines = client.db('pharmacy-management').collection('medicine')
     const cartMedicine = client.db('pharmacy-management').collection('cartMedicine');
+
+    app.get('/test', (req, res) => {
+      res.send('test');
+    })
 
     app.put('/entryMedicine', async (req, res) => {
       let medicineData = req.body;

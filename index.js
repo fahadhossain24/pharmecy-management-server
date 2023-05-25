@@ -22,6 +22,10 @@ const client = new MongoClient(uri, {
   }
 });
 
+app.get('/test', (req, res) => {
+  res.send('test');
+})
+
 async function run() {
   try {
     await client.connect();
